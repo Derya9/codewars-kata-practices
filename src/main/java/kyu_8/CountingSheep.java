@@ -1,15 +1,12 @@
 package kyu_8;
 
+import java.util.Arrays;
+
 public class CountingSheep {
 
-    public int countSheeps(Boolean[] arrayOfSheeps) {
-        int counter = 0;
-        for (Boolean present : arrayOfSheeps) {
-            if (present != null && present) {
-                counter += 1;
-            }
-        }
-        return counter;
+    public int countSheep(Boolean[] arrayOfSheep) {
+         return (int)Arrays.stream(arrayOfSheep)
+                 .filter(Boolean::booleanValue).count();
     }
 
 }
