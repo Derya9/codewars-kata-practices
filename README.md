@@ -1,2 +1,3 @@
-# codewars-kata-practices
-Codewars Kata Practices
+## Codewars Kata Practices
+
+### Enjoy my practices and tests.
