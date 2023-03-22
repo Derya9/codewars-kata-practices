@@ -8,7 +8,8 @@ public class CountingSheep {
     public int countSheep(Boolean[] arrayOfSheep) {
          return (int)Arrays.stream(arrayOfSheep)
                  .filter(Objects::nonNull)
-                 .filter(Boolean::booleanValue).count();
+                 .filter(Boolean::booleanValue)
+                 .count();
     }
 
 }

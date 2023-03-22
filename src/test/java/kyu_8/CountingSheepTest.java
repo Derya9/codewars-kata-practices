@@ -7,27 +7,31 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
 
 public class CountingSheepTest {
 
-    Boolean[] array1 = {true, true, true, false,
-            true, true, true, true,
-            true, false, true, false,
-            true, false, false, true,
-            true, true, true, true,
-            false, false, true, true};
+    CountingSheep countingSheep = new CountingSheep();
 
-    static Stream<Arguments> listOfSheep() {
+    static Stream<Arguments> parameters() {
         return Stream.of(
-                Arguments.arguments(17, 17)
+                of(0, new Boolean[]{}),
+                of(0, new Boolean[]{null}),
+                of(0, new Boolean[]{false}),
+                of(0, new Boolean[]{false, false}),
+                of(1, new Boolean[]{true}),
+                of(1, new Boolean[]{true, false}),
+                of(1, new Boolean[]{true, null}),
+                of(2, new Boolean[]{true, true}),
+                of(2, new Boolean[]{true, false, true, null})
         );
     }
 
     @ParameterizedTest
-    @MethodSource("listOfSheep")
-    public void testCountSheep(int expectedSheeps, int sheepToCount) {
-        assertEquals("There are 17 sheep in total", expectedSheeps, new CountingSheep().countSheep(array1));
+    @MethodSource("parameters")
+    public void testCountSheep(int expected, Boolean[] sheep) {
+        int result = countingSheep.countSheep(sheep);
+
+        assertEquals(expected, result);
     }
-
-
 }

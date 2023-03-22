@@ -2,7 +2,7 @@ package kyu_8;
 
 public class ReversedString {
 
-    public static String solution(String str) {
+    public String solution(String str) {
         return new StringBuilder(str).reverse().toString();
     }
 }

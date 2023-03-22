@@ -7,25 +7,28 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
 
 public class YouReASquareTest {
+    YouReASquare youReASquare = new YouReASquare();
     static Stream<Arguments> numbersToCheck() {
         return Stream.of(
-                Arguments.arguments(false, -1),
-                Arguments.arguments(true, 0),
-                Arguments.arguments(false, 3),
-                Arguments.arguments(true, 4),
-                Arguments.arguments(true, 25),
-                Arguments.arguments(false, 26),
-                Arguments.arguments(false, "24")
+                of(false, -1),
+                of(true, 0),
+                of(false, 3),
+                of(true, 4),
+                of(true, 25),
+                of(false, 26)
         );
     }
 
 
     @ParameterizedTest
     @MethodSource("numbersToCheck")
-    public void shouldWorkForSomeExamples(Boolean expectedValue, int number) {
-        assertEquals(expectedValue, YouReASquare.isSquare(number));
+    public void shouldWorkForSomeExamples(Boolean expected, int number) {
+        Boolean result = youReASquare.isSquare(number);
+
+        assertEquals(expected, result);
 
     }
 }
