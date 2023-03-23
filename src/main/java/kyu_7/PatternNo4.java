@@ -1,9 +1,18 @@
 package kyu_7;
 
 public class PatternNo4 {
-    public static String pattern(int n) {
-        // Happy Coding ^_^
-        return "";
+    public String pattern(int n) {
+
+        String string = "";
+
+
+        for (int i = 1; i < n+1;) {
+            string =string.concat(String.valueOf(i));
+            i++;
+            System.out.println(string);
+        }
+
+        return string;
     }
 }
 
